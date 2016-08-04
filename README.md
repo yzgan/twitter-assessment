@@ -35,10 +35,10 @@ Your app has to be a working app, with the capabilities as listed below:
 
 ### Tweets
 1. User is able to (C) CREATE Tweets **(140 char max)**
-2a. User is able to (R) VIEW a single tweet
-2b. User is able to (R) view all tweets by a user (every user)
-3. User is able to (U) UPDATE **only their own** tweets
-4. User is able to (D) DELETE **only their own** tweets
+2. User is able to (R) VIEW a single tweet
+3. User is able to (R) view all tweets by a user (every user)
+4. User is able to (U) UPDATE **only their own** tweets
+5. User is able to (D) DELETE **only their own** tweets
 
 
 ### Followers
