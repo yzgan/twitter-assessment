@@ -1,0 +1,40 @@
+<h2>Profile</h2>
+
+<p>Name: <%= @user.name%><br>
+Email: <%= @user.email%><br>
+Created: <%= @user.created_at%> <br>
+Follower: <%= @follower.count%> <br>
+Following: <%= @following.count%> <br>
+
+<%if !@show and current_user!=@user then%>
+	<form action="/user/<%=@user.id%>/follow" method="post">
+		<input type="hidden" name="follower[user_id_following]" value="<%=current_user.id%>">
+		<input type="hidden" name="follower[user_id_followed]" value=" <%=@user.id%>">
+		<input type="submit" value="Follow">
+	</form>
+<%end%>
+
+
+</p>
+
+<%if current_user == @user then%>
+	<form action='/user/<%=@user.id%>/edit' method='post'>
+		<input type="text" name="user[name]" placeholder="edit name">
+		<input type="email" name="user[email]" placeholder="edit email">
+		<input type="password" name="user[password]" placeholder="New password">
+		<input type="submit" value="Edit">
+
+	</form>
+<%end%>
+
+
+Total Tweets:  <a href="/user/<%=@user.id%>/tweets"><%=@user.tweets.count%></a><br>
+<br>
+
+<%if @show then%>
+	<% @tweet.each do |t|%>
+		<ol>
+			<li><%=t.subject%> </li>
+		</ol>
+	<%end%>
+<%end%>

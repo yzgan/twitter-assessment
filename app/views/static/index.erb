@@ -1,2 +1,34 @@
-<h1>Hello World</h1>
-<p>See Me in views/static/index.html.erb</p>
+
+<div>
+	<h2>Login</h2>
+	<p>fill in the form to sign in</p>
+	<p>
+	<form action="/login" method="post">
+	  Email:<br>
+	  <input type="email" name="user[email]" placeholder="user@example.com">
+	  <br>
+	  Password:<br>
+	  <input type="password" name="user[password]" placeholder="password">
+	  <br><br>
+	  <input type="submit" value="Login">
+	</form>
+	<!-- <p>If you click the "Submit" button, the form-data will be sent to a page called "/signin".</p> -->
+	</p>
+</div>
+
+<div>
+	<h2>Create an account</h2>
+	<p>free to sign up for account</p>
+	<form action="/signup" method="post">
+		Name:<br>
+		<input type="text" name="user[name]" placeholder="name">
+		<br>
+		Email:<br>
+		<input type="email" name="user[email]" placeholder="user@example.com">
+		<br>
+		Password:<br>
+		<input type="password" name="user[password]" placeholder="password">
+		<br><br>
+		<input type="submit" value="Sign up">
+	</form>
+</div>

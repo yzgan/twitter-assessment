@@ -1,0 +1,13 @@
+
+<h3>View all my tweets </h3>
+
+<%@tweets.each do |t|%>
+	<ol>
+		<li> <a href="/tweet/<%=t.id%>"><%=t.subject%></a>  | <%=t.user.name%> <br>
+			created: <%=t.created_at%> | updated: <%=t.updated_at%>
+		</li>
+	</ol>
+<%end%>
+
+
+

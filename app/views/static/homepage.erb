@@ -1,0 +1,48 @@
+
+
+<div class="page-title-container">
+	<div class="page-title-container-text"><h2>Homepage</h2></div>
+	<div id="user-option">
+	<% if logged_in? then%>
+		<form action="/logout" method="post">
+		current user: <a href="/user/<%=current_user.id%>"><%= current_user.name %></a>  id: <%= current_user.id %>
+			<input type="submit" value="Logout">
+		</form>
+		<div>
+			<a href="/user/<%=current_user.id%>/tweets">View My Tweets</a> :
+		
+		</div>
+	<% end %>
+	</div>
+</div>
+
+
+<div id="post-tweet-container">
+	<h2>Post tweet</h2>
+	<p>
+		<form id="form-homepage-tweet-new" action="/tweet/new" method="post">
+			<input type="text" name="tweet[subject]" placeholder="What to tweet?">
+			
+			<input id="form-homepage-tweet-button" type="submit" value="Tweet!">
+		</form>
+	</p>
+	<ul class="form-homepage-tweet-new-list"></ul>
+</div>
+
+
+
+<div>
+	<h3>All Tweets</h3>
+	<%@tweets.each do |t|%>
+		<a href="/tweet/<%=t.id%>"><%=t.subject%></a> - <a href="/user/<%=t.user.id%>"><%=t.user.name%></a> 
+		<!-- follow  -->
+		<%if current_user != t.user%>
+			<form action="/user/<%=t.user.id%>/follow" method="post">
+				<input type="hidden" name="follower[user_id_following]" value="<%=current_user.id%>">
+				<input type="hidden" name="follower[user_id_followed]" value=" <%=t.user.id%>">
+				<input type="submit" value="Follow">
+			</form>
+		<%end%>
+		<br>
+	<%end%>
+</div>

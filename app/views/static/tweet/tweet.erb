@@ -1,0 +1,20 @@
+<h2>Tweet</h2>
+
+
+
+<h3><%=@tweet.subject%> </h3>
+
+by <%=@tweet.user.name%>
+
+
+<%if current_user == @tweet.user%>
+	<form action="/tweet/<%=@tweet.id%>/edit" method="post">
+		<input type="text" name="tweet[subject]" placeholder="Edit your tweet content here">
+		<input type="submit" value="Edit">
+	</form>
+
+	<form action="/tweet/<%=@tweet.id%>/delete" method="post">
+		<input type="submit" value="Delete This tweet">
+	</form>
+
+<%end%>
